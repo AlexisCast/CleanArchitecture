@@ -23,10 +23,11 @@ namespace ObjectOrientedProgramming.Business
             }
         }
 
-        public Beer(string name, decimal price)
+        public Beer(string name, decimal price, decimal alcohol)
         {
             Name = name;
             Price = price;
+            Alcohol = alcohol;
         }
         public string SAlcohol
         {
@@ -35,7 +36,7 @@ namespace ObjectOrientedProgramming.Business
                 return "Alcohol: " + _alcohol.ToString();
             }
         }
-        public string GetInfo()
+        public virtual string GetInfo()
         {
             return "Nombre: " + Name + ", Precio: $ " + Price + ", Alcohol: " + Alcohol;
         }
