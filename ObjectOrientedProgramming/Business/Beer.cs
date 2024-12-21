@@ -11,7 +11,7 @@ namespace ObjectOrientedProgramming.Business
         private decimal _alcohol;
 
         public string Name { get; set; }
-        public decimal Price { get; set; }
+        protected decimal Price { get; set; }
         public decimal Alcohol
         {
             get { return _alcohol; }
@@ -39,6 +39,16 @@ namespace ObjectOrientedProgramming.Business
         public virtual string GetInfo()
         {
             return "Nombre: " + Name + ", Precio: $ " + Price + ", Alcohol: " + Alcohol;
+        }
+
+        public string GetInfo(string message)
+        {
+            return message + " " + GetInfo();
+        }
+
+        public string GetInfo(int number)
+        {
+            return number + ".- " + GetInfo();
         }
 
     }

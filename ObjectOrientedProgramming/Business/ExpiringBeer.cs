@@ -16,7 +16,7 @@ namespace ObjectOrientedProgramming.Business
             Expiration = expiration;
         }
 
-        public override string GetInfo()
+        public override string GetInfo()//parent class must be/have virtual
         {
             return "Cerveza con caducidad: " + Name + ", Precio: $ " + Price + ", Alcohol: " + Alcohol +
                 ", caducidad: " + Expiration.Date.ToString();
