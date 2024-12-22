@@ -14,6 +14,9 @@ namespace ObjectOrientedProgramming.Business
 
         public string Name { get; set; }
         protected decimal Price { get; set; }
+
+        public static int QuantityObjects;
+
         public decimal Alcohol
         {
             get { return _alcohol; }
@@ -31,6 +34,7 @@ namespace ObjectOrientedProgramming.Business
             Name = name;
             Price = price;
             Alcohol = alcohol;
+            QuantityObjects++;
         }
         public string SAlcohol
         {
