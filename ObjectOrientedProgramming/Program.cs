@@ -69,3 +69,45 @@ decimal GetTotal(ISalable[] concepts)
     }
     return total;
 }
+
+Console.WriteLine("-------");
+
+// generics
+var elements = new Collection<int>(3);
+elements.Add(100);
+elements.Add(150);
+elements.Add(200);
+elements.Add(500);
+foreach (var element in elements.Get())
+{
+    Console.WriteLine(element);
+}
+Console.WriteLine("-------");
+
+
+var names = new Collection<string>(2);
+names.Add("Héctor");
+names.Add("Ana");
+names.Add("Juan");
+foreach (var element in names.Get())
+{
+    Console.WriteLine(element);
+}
+Console.WriteLine("-------");
+
+
+var beers = new Collection<Beer>(2);
+beers.Add(erdingBeer);
+beers.Add(delirium);
+foreach (var element in beers.Get())
+{
+    Console.WriteLine(element.GetInfo());
+}
+
+
+
+
+//static
+Console.WriteLine($"Objetos creados {Beer.QuantityObjects}");
+Console.WriteLine(Operations.Add(1, 3));
+Console.WriteLine(Operations.Mul(10, 20));
