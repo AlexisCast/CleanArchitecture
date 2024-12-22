@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedProgramming.Business
 {
-    public class Beer
+    public class Beer : Drink
     {
+        private const string Category = "Cerveza";
+
         private decimal _alcohol;
 
         public string Name { get; set; }
@@ -23,7 +25,8 @@ namespace ObjectOrientedProgramming.Business
             }
         }
 
-        public Beer(string name, decimal price, decimal alcohol)
+        public Beer(string name, decimal price, decimal alcohol, int quanity)
+            : base(quanity)
         {
             Name = name;
             Price = price;
@@ -49,6 +52,10 @@ namespace ObjectOrientedProgramming.Business
         public string GetInfo(int number)
         {
             return number + ".- " + GetInfo();
+        }
+        public override string GetCategory()
+        {
+            return Category;
         }
 
     }

@@ -10,8 +10,8 @@ namespace ObjectOrientedProgramming.Business
     {
         public DateTime Expiration { get; set; }
         public ExpiringBeer(string name, decimal price, decimal alcohol,
-            DateTime expiration)
-            : base(name, price, alcohol)
+            DateTime expiration, int quantity)
+            : base(name, price, alcohol, quantity)
         {
             Expiration = expiration;
         }
