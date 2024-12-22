@@ -35,7 +35,37 @@ Show(drinkWine);
 Show(erdingBeer);
 
 
+SendSome(erdingBeer);
+
+
+var service = new Service(100, 10);
+
+ISalable[] concepts = [
+    erdingBeer,
+    delirium,
+    coronaBeer,
+    service,
+];
+
+Console.WriteLine(GetTotal(concepts));
+
+
 
 void Show(Drink drink)
     => Console.WriteLine(drink.GetCategory());
 
+void SendSome(ISend some)
+{
+    some.Send();
+}
+
+decimal GetTotal(ISalable[] concepts)
+{
+    decimal total = 0;
+    foreach (var concept in concepts)
+    {
+        total += concept.GetPrice();
+        Console.WriteLine(concept.GetPrice());
+    }
+    return total;
+}

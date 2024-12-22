@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedProgramming.Business
 {
-    public class Beer : Drink
+    public class Beer : Drink, ISalable, ISend
     {
         private const string Category = "Cerveza";
 
@@ -57,6 +57,12 @@ namespace ObjectOrientedProgramming.Business
         {
             return Category;
         }
+        public decimal GetPrice()
+            => Price;
+
+        public void Send()
+            => Console.WriteLine("Se envia por correo: " + GetInfo());
+
 
     }
 
