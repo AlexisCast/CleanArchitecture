@@ -2,7 +2,10 @@
 //BeerData beerData = new LimitedBeerData(2); Do not use/not relation in between
 //LimitedBeerData beerData = new LimitedBeerData(2); // yes in complaince with LISKOV
 //var beerData = new LimitedBeerData(2); // yes in complaince with LISKOV
-var beerData = new BeerData();
+
+//var beerData = new BeerData();// it works without Interface
+IRepository<string> beerData = new BeerData(); // it works with Interface
+
 beerData.Add("Corona");
 beerData.Add("Delirium");
 beerData.Add("Erdinger");
@@ -39,8 +42,13 @@ public interface IReportShow
 {
     public void Show();
 }
+public interface IRepository<T>
+{
+    public void Add(T item);
+    public List<T> Get();
+}
 
-public class BeerData
+public class BeerData : IRepository<string>
 {
     protected List<string> _beers;
 
@@ -74,15 +82,17 @@ public class BeerData
 }*/
 
 // IN COMPLAINCE WITH LISKOV not effective parent behavior
-public class LimitedBeerData : BeerData
+public class LimitedBeerData : BeerData, IRepository<string>
 {
-    private BeerData _beerData = new BeerData();
+    //private BeerData _beerData = new BeerData();
+    private IRepository<string> _beerData;
     private int _limit;
     private int _count = 0;
 
-    public LimitedBeerData(int limit)
+    public LimitedBeerData(int limit, IRepository<string> beerData)
     {
         _limit = limit;
+        _beerData = beerData;
     }
     public override void Add(string beer) // parent should change to virtual
     {
@@ -101,8 +111,9 @@ public class LimitedBeerData : BeerData
 
 public class ReportGeneratorBeer : IReportGenerator, IReportShow
 {
-    private BeerData _beerData;
-    public ReportGeneratorBeer(BeerData beerData)
+    //private BeerData _beerData;
+    private IRepository<string> _beerData;
+    public ReportGeneratorBeer(IRepository<string> beerData)
     {
         _beerData = beerData;
     }
@@ -127,8 +138,10 @@ public class ReportGeneratorBeer : IReportGenerator, IReportShow
 
 public class ReportGeneratorHTMLBeer : IReportGenerator
 {
-    private BeerData _beerData;
-    public ReportGeneratorHTMLBeer(BeerData beerData)
+    //private BeerData _beerData;
+    private IRepository<string> _beerData;
+
+    public ReportGeneratorHTMLBeer(IRepository<string> beerData)
     {
         _beerData = beerData;
     }
