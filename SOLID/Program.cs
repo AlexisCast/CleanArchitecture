@@ -8,8 +8,16 @@ var reportGeneratorBeer = new ReportGeneratorBeer(beerData);
 var report = new Report();
 
 var data = reportGeneratorBeer.Generate();
+report.Save(reportGeneratorBeer, "cervezas.txt");
 
-report.Save(data, "cervezas.txt");
+var reportGeneratorBeerHTML = new ReportGeneratorHTMLBeer(beerData);
+report.Save(reportGeneratorBeerHTML, "cervezasHTML.html");
+
+
+public interface IReportGenerator
+{
+    public string Generate();
+}
 
 public class BeerData
 {
@@ -26,7 +34,7 @@ public class BeerData
         => _beers;
 }
 
-public class ReportGeneratorBeer
+public class ReportGeneratorBeer : IReportGenerator
 {
     private BeerData _beerData;
     public ReportGeneratorBeer(BeerData beerData)
@@ -34,29 +42,46 @@ public class ReportGeneratorBeer
         _beerData = beerData;
     }
 
-    public List<string> Generate()
+    public string Generate()
     {
-        var data = new List<string>();
-        int i = 1;
+        string data = "";
         foreach (var beer in _beerData.Get())
         {
-            data.Add(i + " Cerveza: " + beer);
-            i++;
+            data += " Cerveza: " + beer + Environment.NewLine;
         }
         return data;
     }
 }
 
+public class ReportGeneratorHTMLBeer : IReportGenerator
+{
+    private BeerData _beerData;
+    public ReportGeneratorHTMLBeer(BeerData beerData)
+    {
+        _beerData = beerData;
+    }
+    public string Generate()
+    {
+        string data = "<div>";
+        foreach (var beer in _beerData.Get())
+        {
+            data += "<b>" + beer + "<b></br>";
+        }
+        data += "</div>";
+
+        return data;
+    }
+
+}
+
 public class Report
 {
-    public void Save(List<string> data, string filePath)
+    public void Save(IReportGenerator reportGenerator, string filePath)
     {
         using (var writer = new StreamWriter(filePath))
         {
-            foreach (var beer in data)
-            {
-                writer.WriteLine(beer);
-            }
+            string data = reportGenerator.Generate();
+            writer.WriteLine(data);
         }
     }
 }
