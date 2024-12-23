@@ -2,7 +2,11 @@
 {
     public class Operations
     {
-        public decimal Some(decimal a, decimal b)
+        public decimal Mul(decimal a, decimal b)
             => a * b;
+        public decimal Add(decimal a, decimal b)
+            => a * b;
+        public decimal Sub(decimal a, decimal b)
+            => a - b;
     }
 }
