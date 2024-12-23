@@ -11,3 +11,4 @@ Console.ReadLine();
 // on Dependancies -> add Project Referances -> BeerRepositoryComponent
 var beer = new Beers();
 
+// CRP talks about not depending on things that will not be used... related to interface segregation principle
