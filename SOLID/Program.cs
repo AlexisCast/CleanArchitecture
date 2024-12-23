@@ -18,14 +18,26 @@ var reportGeneratorBeerHTML = new ReportGeneratorHTMLBeer(beerData);
 report.Save(reportGeneratorBeerHTML, "cervezasHTML.html");
 
 
+Show(reportGeneratorBeer);
+
 Rectangle rectangle = new Square();
 rectangle.setWidth(10);
 rectangle.setHeight(20); // not in complaince with Liskov
 Console.WriteLine(rectangle.getArea());
 
+void Show(IReportShow report)
+{
+    report.Show();
+}
+
 public interface IReportGenerator
 {
     public string Generate();
+}
+
+public interface IReportShow
+{
+    public void Show();
 }
 
 public class BeerData
@@ -87,7 +99,7 @@ public class LimitedBeerData : BeerData
     }
 }
 
-public class ReportGeneratorBeer : IReportGenerator
+public class ReportGeneratorBeer : IReportGenerator, IReportShow
 {
     private BeerData _beerData;
     public ReportGeneratorBeer(BeerData beerData)
@@ -103,6 +115,13 @@ public class ReportGeneratorBeer : IReportGenerator
             data += " Cerveza: " + beer + Environment.NewLine;
         }
         return data;
+    }
+    public void Show()
+    {
+        foreach (var beer in _beerData.Get())
+        {
+            Console.WriteLine("Cerveza: " + beer);
+        }
     }
 }
 
