@@ -14,6 +14,10 @@ var beer = new Beers();
 // CRP talks about not depending on things that will not be used... related to interface segregation principle
 
 
+// SDP watch udemy video
+//var f = new F();
+var f = new F2();
+var S = new S(f);
 
 
 
@@ -84,3 +88,55 @@ public class B
         _c = c;
     }
 }*/
+
+
+
+
+
+
+
+
+
+
+
+// SDP watch udemy video
+// depend on interfaces
+
+
+public class S
+{
+    //private readonly F _f;
+    private readonly IF _f;
+    //public S(F f)
+    public S(IF f)
+    {
+        _f = f;
+    }
+    public void Do()
+    {
+        _f.Some();
+    }
+}
+//--------------
+public interface IF
+{
+    public void Some();
+}
+//--------------
+//public class F
+public class F : IF
+{
+    public void Some()
+    {
+        // code..
+    }
+}
+//--------------
+public class F2 : IF
+{
+    public void Some()
+    {
+        // other code..
+    }
+}
+
