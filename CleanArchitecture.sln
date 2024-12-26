@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CleanArchitecture", "CleanA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA-EnterpriseLayer", "CA-EnterpriseLayer\CA-EnterpriseLayer.csproj", "{C64B01E3-BF3F-47CC-8CEC-AFB3E8036733}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA-ApplicationLayer", "CA-ApplicationLayer\CA-ApplicationLayer.csproj", "{48D68ED6-0199-41DD-89FE-85F639831E0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,11 +79,16 @@ Global
 		{C64B01E3-BF3F-47CC-8CEC-AFB3E8036733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C64B01E3-BF3F-47CC-8CEC-AFB3E8036733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C64B01E3-BF3F-47CC-8CEC-AFB3E8036733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48D68ED6-0199-41DD-89FE-85F639831E0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48D68ED6-0199-41DD-89FE-85F639831E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48D68ED6-0199-41DD-89FE-85F639831E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48D68ED6-0199-41DD-89FE-85F639831E0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C64B01E3-BF3F-47CC-8CEC-AFB3E8036733} = {A9AB1118-61C6-48E4-8D7B-9DC51B0C3658}
+		{48D68ED6-0199-41DD-89FE-85F639831E0F} = {A9AB1118-61C6-48E4-8D7B-9DC51B0C3658}
 	EndGlobalSection
 EndGlobal
