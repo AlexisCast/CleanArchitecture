@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA-EnterpriseLayer", "CA-En
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA-ApplicationLayer", "CA-ApplicationLayer\CA-ApplicationLayer.csproj", "{48D68ED6-0199-41DD-89FE-85F639831E0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA-InterfaceAdapter-Data", "CA-InterfaceAdapter-Data\CA-InterfaceAdapter-Data.csproj", "{A683A06A-33A6-44D9-A0A2-F173649CF6A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{48D68ED6-0199-41DD-89FE-85F639831E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48D68ED6-0199-41DD-89FE-85F639831E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48D68ED6-0199-41DD-89FE-85F639831E0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A683A06A-33A6-44D9-A0A2-F173649CF6A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A683A06A-33A6-44D9-A0A2-F173649CF6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A683A06A-33A6-44D9-A0A2-F173649CF6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A683A06A-33A6-44D9-A0A2-F173649CF6A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,5 +96,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C64B01E3-BF3F-47CC-8CEC-AFB3E8036733} = {A9AB1118-61C6-48E4-8D7B-9DC51B0C3658}
 		{48D68ED6-0199-41DD-89FE-85F639831E0F} = {A9AB1118-61C6-48E4-8D7B-9DC51B0C3658}
+		{A683A06A-33A6-44D9-A0A2-F173649CF6A3} = {A9AB1118-61C6-48E4-8D7B-9DC51B0C3658}
 	EndGlobalSection
 EndGlobal
