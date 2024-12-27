@@ -1,0 +1,6 @@
+@CA_FrameworkDrivers_API_HostAddress = http://localhost:5022
+
+GET {{CA_FrameworkDrivers_API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
