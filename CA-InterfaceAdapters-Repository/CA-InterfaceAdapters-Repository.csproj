@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CA-ApplicationLayer\CA-ApplicationLayer.csproj" />
+    <ProjectReference Include="..\CA-EnterpriseLayer\CA-EnterpriseLayer.csproj" />
+    <ProjectReference Include="..\CA-InterfaceAdapter-Data\CA-InterfaceAdapter-Data.csproj" />
+  </ItemGroup>
+
 </Project>
