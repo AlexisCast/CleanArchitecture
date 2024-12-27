@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CA-EnterpriseLayer\CA-EnterpriseLayer.csproj" />
+    <ProjectReference Include="..\CA-InterfaceAdapters-Models\CA-InterfaceAdapters-Models.csproj" />
   </ItemGroup>
 
 </Project>

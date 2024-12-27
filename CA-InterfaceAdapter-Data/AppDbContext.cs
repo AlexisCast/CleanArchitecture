@@ -1,4 +1,4 @@
-﻿using CA_EnterpriseLayer;
+﻿using CA_InterfaceAdapters_Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CA_InterfaceAdapter_Data
@@ -9,11 +9,11 @@ namespace CA_InterfaceAdapter_Data
             : base(options)
         { }
 
-        public DbSet<Beer> Beers { get; set; }
+        public DbSet<BeerModel> Beers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) // method that already exist, optionas to override since we are using a plural for 'Beer'
         {
-            modelBuilder.Entity<Beer>().ToTable("Beer");
+            modelBuilder.Entity<BeerModel>().ToTable("Beer");
         }
 
     }
