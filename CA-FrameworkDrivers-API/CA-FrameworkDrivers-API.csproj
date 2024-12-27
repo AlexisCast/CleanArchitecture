@@ -14,4 +14,11 @@
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\CA-ApplicationLayer\CA-ApplicationLayer.csproj" />
+	  <ProjectReference Include="..\CA-EnterpriseLayer\CA-EnterpriseLayer.csproj" />
+	  <ProjectReference Include="..\CA-InterfaceAdapter-Data\CA-InterfaceAdapter-Data.csproj" />
+	  <ProjectReference Include="..\CA-InterfaceAdapters-Repository\CA-InterfaceAdapters-Repository.csproj" />
+	</ItemGroup>
+
 </Project>
