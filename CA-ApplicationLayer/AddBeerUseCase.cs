@@ -18,7 +18,7 @@ namespace CA_ApplicationLayer
             _mapper = mapper;
         }
 
-        public async Task ExecuteAsunc(TDTO beerDTO)
+        public async Task ExecuteAsync(TDTO beerDTO)
         {
             var beer = _mapper.ToEntity(beerDTO);
 
