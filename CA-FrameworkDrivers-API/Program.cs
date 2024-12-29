@@ -1,5 +1,6 @@
 using CA_ApplicationLayer;
 using CA_EnterpriseLayer;
+using CA_FrameworkDrivers_API.Middlewares;
 using CA_InterfaceAdapter_Data;
 using CA_InterfaceAdapters_Mappers;
 using CA_InterfaceAdapters_Mappers.DTOs.Requests;
@@ -44,6 +45,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseMiddleware<ExceptionMiddleware>();
 //app.MapGet("/beer", () =>
 //{
 //    return "Hello World!";
