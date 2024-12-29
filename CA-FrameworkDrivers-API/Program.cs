@@ -1,12 +1,16 @@
 using CA_ApplicationLayer;
 using CA_EnterpriseLayer;
 using CA_FrameworkDrivers_API.Middlewares;
+using CA_FrameworkDrivers_API.Validator;
 using CA_InterfaceAdapter_Data;
 using CA_InterfaceAdapters_Mappers;
 using CA_InterfaceAdapters_Mappers.DTOs.Requests;
 using CA_InterfaceAdapters_Models;
 using CA_InterfaceAdapters_Presenters;
 using CA_InterfaceAdapters_Repository;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +22,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//validators
+builder.Services.AddValidatorsFromAssemblyContaining<BeerValidator>();
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();// for forms
 
 //dependencies
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -61,8 +69,16 @@ app.MapGet("/beer", async (GetBeerUseCase<Beer, BeerViewModel> beerUseCase) =>
 .WithOpenApi();
 
 app.MapPost("/beer", async (BeerRequestDTO beerRequest,
-    AddBeerUseCase<BeerRequestDTO> beerUseCase) =>
+    AddBeerUseCase<BeerRequestDTO> beerUseCase,
+    IValidator<BeerRequestDTO> validator) =>
 {
+    var result = await validator.ValidateAsync(beerRequest);
+
+    if (!result.IsValid)
+    {
+        return Results.ValidationProblem(result.ToDictionary());
+    }
+
     await beerUseCase.ExecuteAsync(beerRequest);
     return Results.Created();
 })
