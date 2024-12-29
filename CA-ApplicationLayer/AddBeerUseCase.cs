@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CA_ApplicationLayer.Exceptions;
 using CA_EnterpriseLayer;
 
 namespace CA_ApplicationLayer
@@ -24,7 +25,8 @@ namespace CA_ApplicationLayer
 
             if (string.IsNullOrEmpty(beer.Name))
             {
-                throw new Exception("The name of beer is required.");
+                //throw new Exception("The name of beer is required.");
+                throw new ValidationException("The name of beer is required.");
             }
 
             await _beerRepository.AddAsync(beer);
