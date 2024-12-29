@@ -33,9 +33,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<IRepository<Beer>, Repository>();
 builder.Services.AddScoped<IPresenter<Beer, BeerViewModel>, BeerPresenter>();
+builder.Services.AddScoped<IPresenter<Beer, BeerDetailViewModel>, BeerDetailPresenter>();
 builder.Services.AddScoped<IMapper<BeerRequestDTO, Beer>, BeerMapper>();
 
 builder.Services.AddScoped<GetBeerUseCase<Beer, BeerViewModel>>();
+builder.Services.AddScoped<GetBeerUseCase<Beer, BeerDetailViewModel>>();
 builder.Services.AddScoped<AddBeerUseCase<BeerRequestDTO>>();
 
 var app = builder.Build();
@@ -66,6 +68,13 @@ app.MapGet("/beer", async (GetBeerUseCase<Beer, BeerViewModel> beerUseCase) =>
     return await beerUseCase.ExecuteAsync();
 })
 .WithName("beers")
+.WithOpenApi();
+
+app.MapGet("/beerDetail", async (GetBeerUseCase<Beer, BeerDetailViewModel> beerUseCase) =>
+{
+    return await beerUseCase.ExecuteAsync();
+})
+.WithName("beersDetail")
 .WithOpenApi();
 
 app.MapPost("/beer", async (BeerRequestDTO beerRequest,
