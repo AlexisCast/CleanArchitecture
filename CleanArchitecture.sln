@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA-InterfaceAdapters-Presen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA-InterfaceAdapters-Mappers", "CA-InterfaceAdapters-Mappers\CA-InterfaceAdapters-Mappers.csproj", "{8DA3625D-8EEF-4AD9-B06E-5FD74851655A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA-InterfaceAdapter-Adapters", "CA-InterfaceAdapter-Adapters\CA-InterfaceAdapter-Adapters.csproj", "{0F0AF77B-76D9-4C2B-8DE9-38FD1F84123E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +121,10 @@ Global
 		{8DA3625D-8EEF-4AD9-B06E-5FD74851655A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DA3625D-8EEF-4AD9-B06E-5FD74851655A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DA3625D-8EEF-4AD9-B06E-5FD74851655A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F0AF77B-76D9-4C2B-8DE9-38FD1F84123E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F0AF77B-76D9-4C2B-8DE9-38FD1F84123E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F0AF77B-76D9-4C2B-8DE9-38FD1F84123E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F0AF77B-76D9-4C2B-8DE9-38FD1F84123E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,5 +138,6 @@ Global
 		{C10F33A6-2DA7-4B74-819C-EF52EB68C101} = {A9AB1118-61C6-48E4-8D7B-9DC51B0C3658}
 		{B6449FD4-C8E7-49AE-A1A1-929BD378F290} = {A9AB1118-61C6-48E4-8D7B-9DC51B0C3658}
 		{8DA3625D-8EEF-4AD9-B06E-5FD74851655A} = {A9AB1118-61C6-48E4-8D7B-9DC51B0C3658}
+		{0F0AF77B-76D9-4C2B-8DE9-38FD1F84123E} = {A9AB1118-61C6-48E4-8D7B-9DC51B0C3658}
 	EndGlobalSection
 EndGlobal
